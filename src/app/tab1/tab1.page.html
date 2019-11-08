@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab One
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides [options]="slideOpts">
+    <ion-slide *ngFor="let item of camData">
+      <img [src]="item.cover_image" />
+    </ion-slide>
+  </ion-slides>
+  <div *ngFor="let itemShortCut of shortcuts">
+    <div class="title-shortcut">
+      {{itemShortCut.name}}
+    </div>
+    <!-- <div *ngFor="let itemImg of itemShortCut.actions">
+          <img [src]="itemImg.image">
+        </div> -->
+    <ion-row>
+      <ion-col size=4 *ngFor="let itemImg of itemShortCut.actions">
+        <img [src]="itemImg.image">
+      </ion-col>
+    </ion-row>
+  </div>
+  <div *ngFor="let item of camData">
+    <div class="title-shortcut">{{item.name}}</div>
+    <ion-row>
+      <ion-col [size]="item.col_size" *ngFor="let img of item.products">
+        <img [src]="img.images[0]">
+
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
